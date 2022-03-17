@@ -1,0 +1,12 @@
+<div class="container">
+    <mat-toolbar color="primary">
+        <span>Administrador</span>
+        <div class="spacer"></div>
+        <a mat-button routerLink="viewClients">Catalogo De Clientes</a>
+        <a mat-button routerLink="viewUsers">Catalogo De Usuarios</a>
+        <a mat-button routerLink="viewSimulator">Simulador</a>
+        <a mat-button routerLink="viewDataSimulator">Datos Simulador</a>
+        <a mat-button routerLink="" (click)="closeAccount()">Cerrar Sesion</a> 
+      </mat-toolbar>
+    <router-outlet></router-outlet>
+</div>

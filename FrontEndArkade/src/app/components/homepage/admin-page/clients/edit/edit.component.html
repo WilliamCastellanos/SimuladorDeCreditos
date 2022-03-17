@@ -1,0 +1,63 @@
+<div class="container" style="text-align: center;">
+    <h1>Editar Cliente</h1>
+    <mat-card>
+        <form>
+            <mat-grid-list flex cols="1" rowHeight="70px">
+                <mat-grid-tile [colspan]="1" [rowspan]="1">
+                    <mat-form-field class="card">
+                        <mat-label>Identificacion</mat-label>
+                        <input [(ngModel)]="client.id" disabled = "true" name="clientId" matInput  required/>
+                    </mat-form-field>
+                </mat-grid-tile>
+                <mat-grid-tile [colspan]="1" [rowspan]="1">
+                    <mat-form-field class="card">
+                        <mat-label>Nombre</mat-label>
+                        <input [(ngModel)]="client.name" name="clientName" matInput required/>
+                    </mat-form-field>
+                </mat-grid-tile>
+                <mat-grid-tile [colspan]="1" [rowspan]="1">
+                    <mat-form-field class="card">
+                        <mat-label>Celular</mat-label>
+                        <input [(ngModel)]="client.cellPhone" name="clienCellPhone" matInput />
+                    </mat-form-field>
+                </mat-grid-tile>
+                <mat-grid-tile [colspan]="1" [rowspan]="1">
+                    <mat-form-field class="card">
+                        <mat-label>Direccion</mat-label>
+                        <input [(ngModel)]="client.address" name="clientAdress" matInput />
+                    </mat-form-field>
+                </mat-grid-tile>
+                <mat-grid-tile [colspan]="1" [rowspan]="1">
+                    <mat-form-field class="card" appearance="fill">
+                        <mat-label>Sexo</mat-label>
+                        <mat-select [(ngModel)]="client.gender" name="clientGender">
+                            <mat-option *ngFor="let gender of genders" [value]="gender.value">
+                                {{gender.viewValue}}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </mat-grid-tile>
+                <mat-grid-tile [colspan]="1" [rowspan]="1">
+                    <mat-form-field class="card">
+                        <mat-label>Email</mat-label>
+                        <input [(ngModel)]="client.email" name="clientEmail" matInput />
+                    </mat-form-field>
+                </mat-grid-tile>
+                <mat-grid-tile [colspan]="1" [rowspan]="1">
+                    <mat-form-field class="card" appearance="fill">
+                        <mat-label>Fecha De Nacimiento</mat-label>
+                        <input matInput [(ngModel)]="client.dateBirth" name="clienDateBirth" [matDatepicker]="picker">
+                        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                        <mat-datepicker #picker></mat-datepicker>
+                    </mat-form-field>
+                </mat-grid-tile>
+                <div>
+                    <mat-grid-tile [colspan]="1" [rowspan]="1">
+                        <button mat-raised-button style="margin-right: 20px;" routerLink="">Volver</button>
+                        <button mat-raised-button type="submit" (click)="updateClient()" color="primary"> Editar</button>
+                    </mat-grid-tile>
+                </div>
+            </mat-grid-list>
+        </form>
+    </mat-card>
+</div>

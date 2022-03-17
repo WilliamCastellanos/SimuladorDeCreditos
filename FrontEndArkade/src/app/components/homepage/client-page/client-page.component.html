@@ -1,0 +1,37 @@
+<div class="container">
+    <mat-toolbar color="primary">
+        <span>Cliente</span>
+        <div class="spacer"></div>
+        <a mat-button (click)="viewOptionsSimulator()">Simulador</a>
+        <a mat-button (click) = "viewSettings()">Configuracion</a> 
+        <a mat-button routerLink="" (click)="closeAccount()" >Cerrar Sesion</a> 
+      </mat-toolbar>
+      <app-simulator *ngIf="navSimulator.isSimulator"></app-simulator>
+    <router-outlet></router-outlet>
+</div>
+<mat-card class="sizeCard" *ngIf="showNewPassword">
+  <mat-card-title style="text-align: center;">
+      Cambiar Contraseña
+  </mat-card-title>
+  <mat-card-content>
+      <form>
+          <mat-grid-list flex cols="1" rowHeight="70px">
+              <mat-grid-tile [colspan]="1" [rowspan]="1">
+                  <mat-form-field appearance="fill" class="card">
+                      <mat-label>Contraseña Nueva</mat-label>
+                      <input [(ngModel)]="newPassword" name="loginPassword" matInput [type]="hide ? 'password' : 'text'">
+                      <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+                          [attr.aria-pressed]="hide">
+                          <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                      </button>
+                  </mat-form-field>
+              </mat-grid-tile>
+              <div>
+                  <mat-grid-tile [colspan]="1" [rowspan]="1">
+                      <button mat-raised-button (click)="editPassword()" color="primary">Aceptar</button>
+                  </mat-grid-tile>
+              </div>
+          </mat-grid-list>
+      </form>
+  </mat-card-content>
+</mat-card>

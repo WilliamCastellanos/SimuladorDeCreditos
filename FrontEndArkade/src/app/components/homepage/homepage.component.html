@@ -1,0 +1,34 @@
+<body style="background-color: lightgray;">
+<mat-card class="sizeCard" *ngIf="userService.viewLogin">
+    <mat-card-title style="text-align: center;">
+        Iniciar Sesión
+    </mat-card-title>
+    <mat-card-content>
+        <form [formGroup]="login">
+            <mat-grid-list flex cols="1" rowHeight="70px">
+                <mat-grid-tile [colspan]="1" [rowspan]="1">
+                    <mat-form-field class="card">
+                        <mat-label>Usuario</mat-label>
+                        <input [(ngModel)]="userName" formControlName="loginUser" matInput />
+                    </mat-form-field>
+                </mat-grid-tile>
+                <mat-grid-tile [colspan]="1" [rowspan]="1">
+                    <mat-form-field appearance="fill" class="card">
+                        <mat-label>Contraseña</mat-label>
+                        <input [(ngModel)]="userPassWord" formControlName="loginPassword" matInput [type]="hide ? 'password' : 'text'">
+                        <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+                            [attr.aria-pressed]="hide">
+                            <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                        </button>
+                    </mat-form-field>
+                </mat-grid-tile>
+                <div>
+                    <mat-grid-tile [colspan]="1" [rowspan]="1">
+                        <button mat-raised-button (click)="findUser()" color="primary">Iniciar</button>
+                    </mat-grid-tile>
+                </div>
+            </mat-grid-list>
+        </form>
+    </mat-card-content>
+</mat-card>
+</body>

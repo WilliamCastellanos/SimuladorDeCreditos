@@ -1,0 +1,42 @@
+<div class="container" style="text-align: center;">
+    <h1>Tasas De Interes</h1>
+    <mat-card>
+        <form>
+            <mat-grid-list flex cols="1" rowHeight="70px">
+                <mat-grid-tile [colspan]="1" [rowspan]="1">
+                    <mat-form-field class="card">
+                        <mat-label>Tasa Crédito Extraordinario </mat-label>
+                        <input [(ngModel)]="extraordinario.value" name="Extraordinario" matInput />
+                    </mat-form-field>
+                </mat-grid-tile>
+                <div>
+                    <mat-grid-tile [colspan]="1" [rowspan]="1">
+                        <button mat-raised-button (click)="updateExtraordinario()" color="primary">Editar</button>
+                    </mat-grid-tile>
+                </div>
+                <mat-grid-tile [colspan]="1" [rowspan]="1">
+                    <mat-form-field class="card">
+                        <mat-label>Tasa Crédito Ordinario de Nomina</mat-label>
+                        <input [(ngModel)]="nomina.value"  name="nomina" matInput />
+                    </mat-form-field>
+                </mat-grid-tile>
+                <div>
+                    <mat-grid-tile [colspan]="1" [rowspan]="1">
+                        <button mat-raised-button type="submit" (click)="updateNomina()" color="primary">Editar</button>
+                    </mat-grid-tile>
+                </div>
+                <mat-grid-tile [colspan]="1" [rowspan]="1">
+                    <mat-form-field class="card">
+                        <mat-label>Tasa Crédito de Ventanilla</mat-label>
+                        <input [(ngModel)]="ventanilla.value" name="Ventanilla" matInput />
+                    </mat-form-field>
+                </mat-grid-tile>
+                <div>
+                    <mat-grid-tile [colspan]="1" [rowspan]="1">
+                        <button mat-raised-button (click)="updateVentanilla()" color="primary">Editar</button>
+                    </mat-grid-tile>
+                </div>
+            </mat-grid-list>
+        </form>
+    </mat-card>
+</div>

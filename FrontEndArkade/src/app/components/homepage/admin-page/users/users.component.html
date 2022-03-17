@@ -1,0 +1,7 @@
+<div>
+    <h2>Catalogo de Usuarios</h2>
+    <button mat-raised-button color="primary" *ngIf="showWindow" (click)="showWindow=false" class="add">Nuevo Registro</button>
+  <button class="toReturn" style= "text-align: left;" mat-button *ngIf="!showWindow" (click)="showWindow=true" class="add"><u>Regresar</u></button>
+<app-add-user *ngIf="!showWindow"></app-add-user>
+<app-table-users *ngIf="showWindow"></app-table-users>
+</div>

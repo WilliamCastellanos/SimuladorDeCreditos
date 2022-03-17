@@ -1,0 +1,7 @@
+<div>
+    <h2>Catalogo de clientes</h2>
+    <button mat-raised-button color="primary" *ngIf="showWindow" (click)="showWindow=false" class="add">Nuevo Registro</button>
+  <button class="toReturn" style= "text-align: left;" mat-button *ngIf="!showWindow" (click)="showWindow=true" class="add"><u>Regresar</u></button>
+<app-add *ngIf="!showWindow"></app-add>
+<app-catalog-table *ngIf="showWindow"></app-catalog-table>
+</div>

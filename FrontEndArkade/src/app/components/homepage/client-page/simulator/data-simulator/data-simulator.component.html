@@ -1,0 +1,75 @@
+<div>
+<mat-card *ngIf="navSimulator.dataSimulator">
+    <mat-card-title style="text-align: center;">
+        {{navSimulator.loadData()}}
+    </mat-card-title>
+    <mat-card-content>
+        <form>
+            <mat-grid-list flex cols="1" rowHeight="70px">
+                <mat-grid-tile [colspan]="1" [rowspan]="1">
+                    <mat-form-field class="card">
+                        <mat-label>Valor Credito</mat-label>
+                        <input [(ngModel)]="creditValue" name="creditValue" matInput />
+                    </mat-form-field>
+                </mat-grid-tile>
+                <mat-grid-tile [colspan]="1" [rowspan]="1">
+                    <mat-form-field class="card">
+                        <mat-label>Cuotas mensuales</mat-label>
+                        <input (input)="calculateFee()" [(ngModel)]="monthlyFees" name="monthlyFees" id="monthlyFees" matInput />
+                    </mat-form-field>
+                </mat-grid-tile>
+                <mat-grid-tile [colspan]="1" [rowspan]="1">
+                    <mat-form-field class="card">
+                        <mat-label>Tasa De Interes</mat-label>
+                        <input [(ngModel)]="navSimulator.interestRate" disabled = "true" name="interestRate" matInput />
+                    </mat-form-field>
+                </mat-grid-tile>
+                <mat-grid-tile [colspan]="1" [rowspan]="1">
+                    <mat-form-field class="card">
+                        <mat-label>Cuota Mensual</mat-label>
+                        <input [(ngModel)]="monthlyFee" disabled = "true" name="monthlyFee" matInput />
+                    </mat-form-field>
+                </mat-grid-tile>
+                <div>
+                    <mat-grid-tile [colspan]="1" [rowspan]="1">
+                        <button mat-raised-button (click)="simulator()" color="primary">Calcular</button>
+                    </mat-grid-tile>
+                </div>
+            </mat-grid-list>
+        </form>
+    </mat-card-content>
+</mat-card>
+</div>
+<div class="container" class="mat-elevation-z8">
+    <table style="margin-left:auto;margin-right:auto;" mat-table [dataSource]="dataSource">
+      <ng-container matColumnDef="Cuota">
+        <th mat-header-cell *matHeaderCellDef> Cuota </th>
+        <td mat-cell *matCellDef="let element">{{element.Cuota}}</td>
+      </ng-container>
+  
+      <ng-container matColumnDef="FechaDePago">
+        <th mat-header-cell *matHeaderCellDef> Fecha De Pago </th>
+        <td mat-cell *matCellDef="let element">{{element.FechaDePago}}</td>
+      </ng-container>
+  
+      <ng-container matColumnDef="Interes">
+        <th mat-header-cell *matHeaderCellDef> Interes </th>
+        <td mat-cell *matCellDef="let element"> {{element.Interes}}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="Capital">
+        <th mat-header-cell *matHeaderCellDef> Capital </th>
+        <td mat-cell *matCellDef="let element"> {{element.Capital}}</td>
+      </ng-container>
+  
+      <ng-container matColumnDef="ValorCuota">
+        <th mat-header-cell *matHeaderCellDef> Valor Cuota </th>
+        <td mat-cell *matCellDef="let element"> {{element.ValorCuota}} </td>
+      </ng-container>
+  
+      <tr mat-header-row *matHeaderRowDef="headers"></tr>
+      <tr mat-row *matRowDef="let row; columns: headers;"></tr>
+    </table>
+    <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons aria-label="Select page of periodic elements">
+    </mat-paginator>
+  </div>

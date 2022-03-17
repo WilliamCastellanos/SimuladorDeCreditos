@@ -1,0 +1,3 @@
+<app-admin-page *ngIf="dataService.isAdmin"></app-admin-page>
+<app-homepage *ngIf="dataService.viewLogin"></app-homepage>
+<app-client-page *ngIf="dataService.isClient"></app-client-page>

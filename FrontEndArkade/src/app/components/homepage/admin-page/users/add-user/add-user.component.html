@@ -1,0 +1,53 @@
+<div class="container" style="text-align: center;">
+    <h1>Crear Usuario</h1>
+    <mat-card>
+        <form>
+            <mat-grid-list flex cols="1" rowHeight="70px">
+                <mat-grid-tile [colspan]="1" [rowspan]="1">
+                    <mat-form-field class="card">
+                        <mat-label>Usuario</mat-label>
+                        <input [(ngModel)]="user.nickName" name="userNickName" matInput />
+                    </mat-form-field>
+                </mat-grid-tile>
+                <mat-grid-tile [colspan]="1" [rowspan]="1">
+                    <mat-form-field class="card">
+                        <mat-label>Identificaion</mat-label>
+                        <input [(ngModel)]="user.id_client" name="userId" matInput />
+                    </mat-form-field>
+                </mat-grid-tile>
+                <mat-grid-tile [colspan]="1" [rowspan]="1">
+                    <mat-form-field class="card" appearance="fill">
+                        <mat-label>Perfil</mat-label>
+                        <mat-select [(ngModel)]="user.perfil" name="userPerfil">
+                            <mat-option *ngFor="let perfil of perfiles" [value]="perfil.value">
+                                {{perfil.viewValue}}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </mat-grid-tile>
+              
+                <mat-grid-tile [colspan]="1" [rowspan]="1">
+                    <mat-form-field class="card" appearance="fill">
+                        <mat-label>Estado</mat-label>
+                        <mat-select [(ngModel)]="user.state" name="userState">
+                            <mat-option *ngFor="let state of states" [value]="state.value">
+                                {{state.value}}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </mat-grid-tile>
+                <mat-grid-tile [colspan]="1" [rowspan]="1">
+                    <mat-form-field class="card">
+                        <mat-label>contraseña</mat-label>
+                        <input [(ngModel)]="user.password" name="userPassword" matInput />
+                    </mat-form-field>
+                </mat-grid-tile>
+                <div>
+                    <mat-grid-tile [colspan]="1" [rowspan]="1">
+                        <button mat-raised-button type="submit" (click)="add()" color="primary">Agregar</button>
+                    </mat-grid-tile>
+                </div>
+            </mat-grid-list>
+        </form>
+    </mat-card>
+</div>

@@ -1,0 +1,8 @@
+<mat-toolbar-row>
+    <mat-toolbar>
+        <a mat-button (click)="viewSimulatorNomina()">Crédito Ordinario de Nomina</a>
+        <a mat-button (click)="viewSimulatorExtraordinario()">Crédito Extraordinario</a> 
+        <a mat-button (click)="viewSimulatorVentanilla()">Crédito de Ventanilla</a> 
+      </mat-toolbar>
+  </mat-toolbar-row>
+   <app-data-simulator *ngIf="navSimulator.dataSimulator"></app-data-simulator>
